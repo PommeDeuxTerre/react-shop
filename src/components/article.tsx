@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 function Article() {
-  const [nb_article, setNbArticle] = useState(1);
+  const [nb_article, setNbArticle] = useState<number>(1);
   const stock = 5;
-  function add_one(){
+  function add_one(): void{
       if (nb_article < stock) {
           setNbArticle(nb_article + 1);
       }else{}
   }
-  function remove_one(){
+  function remove_one(): void{
       if (nb_article > 0){
           setNbArticle(nb_article - 1);
       }else{}
   }
-  function buy(){
+  function buy(): void{
       console.log(`added to the basket ${nb_article} times`);
   }
   return (
