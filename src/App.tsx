@@ -6,6 +6,15 @@ import { useState } from "react";
 
 function App() {
   const [basket, setBasket] = useState<Array<{article: article, quantity: number}>>([]);
+  let previous_basket = localStorage.getItem("react-shop-basket");
+  if (previous_basket && basket.length === 0){
+      setBasket(JSON.parse(previous_basket));
+  }
+
+  function setBasketHook(new_basket:Array<{article: article, quantity: number}>):void{
+      localStorage.setItem("react-shop-basket", JSON.stringify(new_basket));
+      setBasket(new_basket);
+  }
 
   const datas: Array<article> = [
       {
@@ -41,7 +50,7 @@ function App() {
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
                     <div className="w-[12rem] h-[16rem] m-3">
-                        <Article article={article} basket={basket} setBasket={setBasket} />
+                        <Article article={article} basket={basket} setBasket={setBasketHook} />
                     </div>
                 )}
             </div>
