@@ -46,7 +46,7 @@ function App() {
   return (
     <>
         <div className="relative h-[300vh]">
-            <Basket />
+            <Basket basket={basket} />
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
                     <div className="w-[12rem] h-[16rem] m-3">

@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { article } from "../articleType";
 
-function BasketArticleList({is_showing_basket, SetShowingBasket}: {is_showing_basket: boolean, SetShowingBasket: (v:boolean)=>void}){
+function BasketArticleList({is_showing_basket, SetShowingBasket, basket}: {is_showing_basket: boolean, SetShowingBasket: (v:boolean)=>void, basket: Array<{article: article, quantity: number}>}){
     if (!is_showing_basket){
         return (
             <>
@@ -8,15 +9,24 @@ function BasketArticleList({is_showing_basket, SetShowingBasket}: {is_showing_ba
         );
     }
     return (
+        <>
         <div className={`sticky top-[10vh] left-[10vw] h-[80vh] w-[80vw] bg-zinc-200 z-10 rounded-xl`}>
             <button className="absolute right-2 top-2 w-12 h-12" onClick={()=>SetShowingBasket(!is_showing_basket)}>
                 <img src="/cancel-cross.svg" />
             </button>
+            <div className="pt-14 flex flex-col content-end">
+                {basket.map((element:{article: article, quantity: number}) => 
+                    <div key={element.article.id}>
+                        { element.article.name }
+                    </div>
+                )}
+            </div>
         </div>
+        </>
     );
 }
 
-function Basket() {
+function Basket({ basket }: {basket: Array<{article: article, quantity: number}>}) {
   const [is_showing_basket, SetShowingBasket] = useState<boolean>(false);
   return (
     <>
@@ -29,7 +39,7 @@ function Basket() {
                 </button>
             </div>
         </div>
-        <BasketArticleList is_showing_basket={is_showing_basket} SetShowingBasket={SetShowingBasket}/>
+        <BasketArticleList is_showing_basket={is_showing_basket} SetShowingBasket={SetShowingBasket} basket={basket}/>
     </>
   );
 }
