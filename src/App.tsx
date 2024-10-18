@@ -1,5 +1,5 @@
 import Article from "./components/article";
-import Basket from "./components/Basket";
+import Nav from "./components/nav";
 import {article} from "./articleType";
 import { useState } from "react";
 
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
         <div className="relative h-[300vh]">
-            <Basket basket={basket} />
+            <Nav basket={basket} />
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
                     <div className="w-[12rem] h-[16rem] m-3">

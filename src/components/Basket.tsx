@@ -10,7 +10,7 @@ function BasketArticleList({is_showing_basket, SetShowingBasket, basket}: {is_sh
     }
     return (
         <>
-        <div className={`sticky top-[10vh] left-[10vw] h-[80vh] w-[80vw] bg-zinc-200 z-10 rounded-xl`}>
+        <div className={`absolute top-[10vh] left-[10vw] h-[80vh] w-[80vw] bg-zinc-200 z-10 rounded-xl`}>
             <button className="absolute right-2 top-2 w-12 h-12" onClick={()=>SetShowingBasket(!is_showing_basket)}>
                 <img src="/cancel-cross.svg" />
             </button>
