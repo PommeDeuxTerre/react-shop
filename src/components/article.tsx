@@ -46,7 +46,7 @@ function Article({ article, basket, setBasket }: {article: article, basket:Array
         <img className="w-full rounded-t-lg" src={ article.image_url }/>
         <div className="w-full h-16 flex flex-row justify-between">
             <div className="w-5/12">
-                <p className="ml-1">{ article.name }</p>
+                <p className="ml-1 text-nowrap">{ article.name } { article.prix }€</p>
                 <div className="flex flex-row justify-end divide-x divide-gray-100">
                     <button className="bg-gray-200 w-8 h-8 text-xl text-center rounded-l-lg" onClick={remove_one}>-</button>
                     <p className="bg-gray-200 w-8 h-8 text-xl text-center">{ nb_article }</p>
@@ -55,7 +55,7 @@ function Article({ article, basket, setBasket }: {article: article, basket:Array
             </div>
             <div className="flex flex-col justify-around w-5/12">
                 <p className="mr-1 text-end">restant: { article.quantity }</p>
-                <button className="bg-green-300 text-xl text-center rounded-lg" onClick={buy}>Ajouter</button>
+                <button className="bg-green-300 hover:bg-green-400 text-xl text-center rounded-lg" onClick={buy}>Ajouter</button>
             </div>
         </div>
     </div>
