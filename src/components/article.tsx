@@ -38,7 +38,6 @@ function Article({ article, basket, setBasket }: {article: article, basket:Array
       }
       setBasket(basket.map((x)=>x));
       setNbArticle(1);
-      console.log(basket);
   }
 
   return (

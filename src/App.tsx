@@ -8,7 +8,6 @@ function App() {
   const [basket, setBasket] = useState<Array<{article: article, quantity: number}>>([]);
   let previous_basket = localStorage.getItem("react-shop-basket");
   if (previous_basket && previous_basket !== "[]" && basket.length === 0){
-      console.log("pomme")
       setBasket(JSON.parse(previous_basket));
   }
 
