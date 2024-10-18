@@ -50,7 +50,7 @@ function App() {
             <Nav basket={basket} setBasket={setBasketHook} />
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
-                    <div className="w-[12rem] h-[16rem] m-3">
+                    <div key={article.id} className="w-[12rem] h-[16rem] m-3">
                         <Article article={article} basket={basket} setBasket={setBasketHook} />
                     </div>
                 )}
