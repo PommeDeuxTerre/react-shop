@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { article } from "../articleType";
 
-function Article({ article, basket, setBasket }: {article: article, basket:Array<{article: article, quantity: number}>, setBasket(v:Array<{article: article, quantity: number}>):void }) {
+function Article({ article, basket, setBasket }: {article: article, basket:Array<{article: article, quantity: number}>, setBasket:(v:Array<{article: article, quantity: number}>)=>void }) {
   const [nb_article, setNbArticle] = useState<number>(1);
   const max = article.quantity - (basket.find((x)=>x.article.id === article.id)?.quantity || 0);
   if (max === 0 && nb_article !== 0){

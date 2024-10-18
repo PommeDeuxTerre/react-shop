@@ -1,7 +1,7 @@
 import { article } from "../articleType";
 import Basket from "./Basket";
 
-function Nav({ basket }: {basket: Array<{article: article, quantity: number}>}) {
+function Nav({ basket, setBasket }: {basket: Array<{article: article, quantity: number}>, setBasket:(v:Array<{article: article, quantity: number}>)=>void}) {
   return (
     <>
         <nav className="flex flex-row justify-between bg-gray-200 sticky top-0">
@@ -10,7 +10,7 @@ function Nav({ basket }: {basket: Array<{article: article, quantity: number}>}) 
                     react-shop
                 </a>
             </h2>
-            <Basket basket={basket} />
+            <Basket basket={basket} setBasket={setBasket} />
         </nav>
     </>
   );

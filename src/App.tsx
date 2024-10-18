@@ -7,7 +7,8 @@ import { useState } from "react";
 function App() {
   const [basket, setBasket] = useState<Array<{article: article, quantity: number}>>([]);
   let previous_basket = localStorage.getItem("react-shop-basket");
-  if (previous_basket && basket.length === 0){
+  if (previous_basket && previous_basket !== "[]" && basket.length === 0){
+      console.log("pomme")
       setBasket(JSON.parse(previous_basket));
   }
 
@@ -46,7 +47,7 @@ function App() {
   return (
     <>
         <div className="relative h-[300vh]">
-            <Nav basket={basket} />
+            <Nav basket={basket} setBasket={setBasketHook} />
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
                     <div className="w-[12rem] h-[16rem] m-3">
