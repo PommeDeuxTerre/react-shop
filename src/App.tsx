@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-        <div className="relative h-[300vh]">
+        <div className="relative">
             <Nav basket={basket} setBasket={setBasketHook} />
             <div className="flex flex-row flex-wrap justify-center content-center">
                 {datas.map(article => 
