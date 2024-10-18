@@ -26,11 +26,7 @@ function BasketArticleList({basket_state, SetShowingBasket, basket, setBasket}: 
     const [credit_card, setCreditCard] = useState<string>("");
     const [credit_card_validity, setCreditCardValidity] = useState<FieldValidity>(FieldValidity.not_looked);
     function get_total_price(): number{
-        let total_price = 0;
-        for (let i=0;i<basket.length;i++){
-            total_price += basket[i].article.prix * basket[i].quantity;
-        }
-        return total_price;
+        return basket.map((x)=>x.article.prix * x.quantity).reduce((acc, x)=>acc + x, 0);
     }
 
     function validate_transaction(e:FormEvent<HTMLFormElement>): void{
